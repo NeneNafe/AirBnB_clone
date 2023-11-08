@@ -14,7 +14,7 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """
-        this is the constructor
+        this is the constructor of my class
         """
         if kwargs:
             if 'id' in kwargs:
