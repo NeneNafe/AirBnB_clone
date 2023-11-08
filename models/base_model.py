@@ -12,13 +12,23 @@ class BaseModel:
     """
     this is a class called BaseModel
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         this is the constructor
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        if kwargs:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'created_at' in kwargs:
+                self.created_at = kwargs['created_at']
+            if 'updated_at' in kwargs:
+                self.updated_at = kwargs['updated_at']
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+
+
 
     def __str__(self):
         """str method
