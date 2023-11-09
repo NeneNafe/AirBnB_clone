@@ -33,7 +33,8 @@ class FileStorage:
         if os.path.exists(FileStorage.__file_path):
             with open(file=FileStorage.__file_path, mode='r') as file:
                 data = file.read()
-                deserialized = json.loads(data)
-                FileStorage.__objects = deserialized
+                if data:
+                    deserialized = json.loads(data)
+                    FileStorage.__objects = deserialized
         else:
             pass
