@@ -39,6 +39,6 @@ class FileStorage:
         """deserialization of the object file to __objects"""
         if os.path.exists(FileStorage.__file_path):
             with open(file=FileStorage.__file_path, mode='r') as file:
-               FileStorage.__objects = json.load(file)
+                FileStorage.__objects = json.load(file)
         else:
             pass
