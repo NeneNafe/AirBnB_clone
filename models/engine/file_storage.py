@@ -2,6 +2,7 @@
 
 import json
 import os
+
 """Define a class"""
 
 
@@ -23,18 +24,21 @@ class FileStorage:
         FileStorage.__objects[key] = obj
 
     def save(self):
+        import models.base_model
         """serializes __objects to the JSON file (path: __file_path)"""
         with open(file=FileStorage.__file_path, mode='w') as file:
-            serializeddata = json.dumps(FileStorage.__objects)
-            file.write(serializeddata)
+            serialized = {}
+            for key, value in FileStorage.__objects.items():
+                if isinstance(value, models.base_model.BaseModel):
+                    serialized[key] = value.to_dict()
+                else:
+                    serialized[key] = value
+            json.dump(serialized, file)
 
     def reload(self):
         """deserialization of the object file to __objects"""
         if os.path.exists(FileStorage.__file_path):
             with open(file=FileStorage.__file_path, mode='r') as file:
-                data = file.read()
-                if data:
-                    deserialized = json.loads(data)
-                    FileStorage.__objects = deserialized
+               FileStorage.__objects = json.load(file)
         else:
             pass
