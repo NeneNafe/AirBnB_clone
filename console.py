@@ -65,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
             cmd_args = line.split(" ")
             if cmd_args[0] not in storage.classes():
                 print("** class doesn't exist **")
-            elif len(cmd_args < 2):
+            elif len(cmd_args) < 2:
                 print("** instance id missing **")
             else:
                 key = f"{cmd_args[0]}.{cmd_args[1]}"
@@ -74,6 +74,22 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     del storage.all()[key]
                     storage.save()
+
+    def do_all(self, line):
+        """ Prints all string representation of all instances"""
+        cmd_args = line.split(" ")
+        if not line:
+            print("** class name is missing **")
+        elif cmd_args[0] not in storage.classes():
+            print("** class doesn't exist **")
+        else:
+            instances = []
+            for key, value in storage.all().items():
+                # Cheks if the key belongs to the specified class
+                class_name, instance_id = key.split('.')
+                if class_name == cmd_args[0]:
+                    instances.append(str(value))
+            print(instances)
 
 
 if __name__ == "__main__":
