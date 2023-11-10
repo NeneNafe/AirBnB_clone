@@ -5,7 +5,7 @@ python command interpreter
 import cmd
 import json
 from models import storage
-from models.base_model import BaseModel
+from models import *
 
 
 class HBNBCommand(cmd.Cmd):
@@ -19,21 +19,41 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, *args):
         """Quit command to exit the program\n"""
         return True
-    
+
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file"""
         if line:
-            all_objs = storage.all()
-            if line not in all_objs():
+            # checks if the line is not empty from the storage class
+            if line not in storage.classes():
                 print("** class doesn't exist **")
             else:
                 # creates an instance of the given class
-                model_class = all_objs[line].__class__
-                new_instance = model_class()
+                new_instance = storage.classes()[line]()
                 new_instance.save()
                 print(new_instance.id)
         else:
             print("** class name missing **")
+
+    def do_show(self, line):
+        """
+        Prints the str representstion of an instance
+        """
+        if not line:
+            print("** class name missing **")
+        else:
+            # splits the args passed to the console
+            cmd_args = line.split(" ")
+            # checks if the command takes two args
+            if cmd_args[0] not in storage.classes():
+                print("** class doesn't exist **")
+            elif len(cmd_args) < 2:
+                print("** instance id missing **")
+            else:
+                key = f"{cmd_args[0]}.{cmd_args[1]}"
+                if key not in storage.all():
+                    print("** no instance found **")
+                else:
+                    print(storage.all()[key])
 
 
 if __name__ == "__main__":

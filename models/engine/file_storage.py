@@ -42,3 +42,10 @@ class FileStorage:
                 FileStorage.__objects = json.load(file)
         else:
             pass
+
+    def classes(self):
+        """Returns a dictionary of all classes in the console"""
+        from models.base_model import BaseModel
+        
+        class_dict = {'BaseModel': BaseModel}
+        return class_dict
