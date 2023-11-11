@@ -11,6 +11,9 @@ from datetime import datetime
 class BaseModel:
     """
     this is a class called BaseModel
+    id - string assign to uuid
+    created_at - datetime current date
+    updated_at - current date but subjected to change
     """
     def __init__(self, *args, **kwargs):
         from models import storage
@@ -47,7 +50,11 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values of the instance"""
+        """returns a dictionary containing all keys/values of the instance
+        id
+        created_at
+        updated_at
+        """
         return {
             "__class__": self.__class__.__name__,
             "id": self.id,
