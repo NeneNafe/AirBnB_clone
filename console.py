@@ -116,23 +116,30 @@ class HBNBCommand(cmd.Cmd):
             else:
                 instance = storage.all()[key]
                 attribute_name = cmd_args[3]
-                attribue_value = cmd_args[4]
+                attribute_value = cmd_args[4]
 
                 # checks if the attribute_name is not one that is restricted
                 if attribute_name in ("id", "created_at", "updated_at"):
-                    print("** can't be update id, created_at, upsated_at **")
+                    print("** can't be update id, created_at, updated_at **")
                 else:
-                    # it gets the attribute type fro the instance
-                    attr_type = type(getattr(instance, attribute_name, None))
-                    # The You cast the attr value to the correct type
-                    try:
-                        casted_value = attr_type(attribue_value)
-                    except ValueError:
-                        print(f"** invalid value for {attribute_name} **")
-                        return
-                    # Then You update the attribute and save the changes
-                    setattr(instance, attribute_name, casted_value)
-                    storage.save()
+                    # check if the attribute exists in the instance
+                    if not hasattr(instance, attribute_name):
+                        print(
+                            f"** attribute {attribute_name} not found in "
+                            f"{cmd_args[0]} **"
+                        )
+                    else:
+                        # it gets the attribute type from the instance
+                        attr_type = type(getattr(instance, attribute_name))
+                        # Then You cast the attr value to the correct type
+                        try:
+                            casted_value = attr_type(attribute_value)
+                        except ValueError:
+                            print(f"** invalid value for {attribute_name} **")
+                            return
+                        # Then You update the attribute and save the changes
+                        setattr(instance, attribute_name, casted_value)
+                        instance.save()
 
 
 if __name__ == "__main__":
