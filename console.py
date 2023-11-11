@@ -12,13 +12,17 @@ class HBNBCommand(cmd.Cmd):
     """class that inherits from the Cmd class and does command line commands"""
     prompt = '(hbnb) '
 
-    def do_EOF(self, *args):
+    def do_EOF(self, line):
         """End of file command"""
         return True
 
-    def do_quit(self, *args):
+    def do_quit(self, line):
         """Quit command to exit the program\n"""
         return True
+
+    def emptyline(self):
+        "do nothing on this empty line"
+        pass
 
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it (to the JSON file"""
@@ -105,9 +109,9 @@ class HBNBCommand(cmd.Cmd):
             key = f"{cmd_args[0]}.{cmd_args[1]}"
             if key not in storage.all():
                 print("** no instance found **")
-            elif len(cmd_args) < 4:
+            elif len(cmd_args) < 3:
                 print("** attribute name missing **")
-            elif len(cmd_args) < 5:
+            elif len(cmd_args) < 4:
                 print("** value missing **")
             else:
                 instance = storage.all()[key]

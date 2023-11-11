@@ -6,5 +6,8 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """Inherits from BseModel"""
-    name = ""
+    """Inherits from BaseModel
+    public class attribute
+    - name
+    """
+    name = ''
