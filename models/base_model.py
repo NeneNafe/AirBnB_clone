@@ -6,7 +6,7 @@ this is a class with attributes/methods for other classes
 
 import uuid
 from datetime import datetime
-
+from models import storage
 
 class BaseModel:
     """
@@ -16,7 +16,6 @@ class BaseModel:
     updated_at - current date but subjected to change
     """
     def __init__(self, *args, **kwargs):
-        from models import storage
         """
         this is the constructor of my class
         """
@@ -43,7 +42,6 @@ class BaseModel:
         return f'[{self.__class__.__name__}] ({self.id}) {self.__dict__}'
 
     def save(self):
-        from models import storage
         """updates time when object changes
         """
         self.updated_at = datetime.now()
