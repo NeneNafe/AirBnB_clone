@@ -36,16 +36,24 @@ class FileStorage:
             json.dump(serialized, file)
 
     def reload(self):
+        
         """deserialization of the object file to __objects"""
         if os.path.exists(FileStorage.__file_path):
             with open(file=FileStorage.__file_path, mode='r') as file:
-                FileStorage.__objects = json.load(file)
+                for key, value in json.load(file).items():
+                    nameofclass = value['__class__']
+                    if nameofclass in self.classes():
+                        theclass = self.classes()[nameofclass]
+                        instance = theclass(**value)
+                        FileStorage.__objects[key] = instance
+        
         else:
             pass
 
     def classes(self):
         """Returns a dictionary of all classes in the console"""
         from models.base_model import BaseModel
+        from models.user import User
         
-        class_dict = {'BaseModel': BaseModel}
+        class_dict = {'BaseModel': BaseModel, 'User': User}
         return class_dict

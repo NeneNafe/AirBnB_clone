@@ -105,9 +105,9 @@ class HBNBCommand(cmd.Cmd):
             key = f"{cmd_args[0]}.{cmd_args[1]}"
             if key not in storage.all():
                 print("** no instance found **")
-            elif len(cmd_args) < 4:
+            elif len(cmd_args) < 3:
                 print("** attribute name missing **")
-            elif len(cmd_args) < 5:
+            elif len(cmd_args) < 4:
                 print("** value missing **")
             else:
                 instance = storage.all()[key]
