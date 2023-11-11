@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 class TestBaseModel(unittest.TestCase):
     """this is a class that does the test for basemodel"""
-    def testBase(self):
+    def test_Base(self):
         b1 = BaseModel()
         self.assertTrue(hasattr(b1, 'created_at'))
         self.assertTrue(hasattr(b1, 'updated_at'))
@@ -18,3 +18,4 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(b1.id, str)
         self.assertIsInstance(b1.created_at, datetime)
         self.assertIsInstance(b1.updated_at, datetime)
+        self.assertRegex(b1.id, r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}')
