@@ -12,11 +12,11 @@ class HBNBCommand(cmd.Cmd):
     """class that inherits from the Cmd class and does command line commands"""
     prompt = '(hbnb) '
 
-    def do_EOF(self):
+    def do_EOF(self, line):
         """End of file command"""
         return True
 
-    def do_quit(self):
+    def do_quit(self, line):
         """Quit command to exit the program\n"""
         return True
 
