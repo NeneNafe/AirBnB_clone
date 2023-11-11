@@ -52,5 +52,9 @@ class FileStorage:
         """Returns a dictionary of all classes in the console"""
         from models.base_model import BaseModel
         from models.user import User
-        class_dict = {'BaseModel': BaseModel, 'User': User}
+        from models.state import State
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+        class_dict = {'BaseModel': BaseModel, 'User': User, 'State': State, 'Amenity': Amenity, 'Place': Place, 'Review': Review}
         return class_dict
