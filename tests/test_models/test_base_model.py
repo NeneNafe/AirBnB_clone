@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from models.base_model import BaseModel
 """doing some unittesting for BaseModel"""
 import unittest

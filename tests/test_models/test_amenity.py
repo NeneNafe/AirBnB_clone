@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from models.amenity import Amenity
 """class that does unittest"""
 import unittest
