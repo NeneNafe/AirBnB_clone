@@ -102,7 +102,13 @@ class HBNBCommand(cmd.Cmd):
         if len(cmd_args) == 2 and\
             cmd_args[1].startswith('show(') and cmd_args[1].endswith(')'):
             classname = cmd_args[0]
-            return f'show {classname}'
+            lineid = line[line.find('\"')+1:line.rfind('\"')]
+            return f'show {classname} {lineid}'
+        if len(cmd_args) == 2 and\
+            cmd_args[1].startswith('destroy(') and cmd_args[1].endswith(')'):
+            classname = cmd_args[0]
+            lineid = line[line.find('\"')+1:line.rfind('\"')]
+            return f'destroy {classname} {lineid}'
         return line
 
     def do_update(self, line):
