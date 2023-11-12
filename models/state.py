@@ -10,6 +10,4 @@ class State(BaseModel):
     public class attribute
     - name
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.name = ''
+    name = ''
