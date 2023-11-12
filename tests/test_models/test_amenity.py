@@ -8,9 +8,9 @@ class TestAmenity(unittest.TestCase):
     """This is the test for Amenity class"""
     def test_Amenity(self):
         amenity = Amenity()
-        amenity2 = Amenity()
         self.assertIsInstance(amenity, Amenity)
         self.assertEqual(amenity.name, '')
+        self.assertIsInstance(amenity.name, str)
 
 
 if __name__ == "__main__":
