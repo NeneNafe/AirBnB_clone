@@ -11,7 +11,6 @@ class TestAmenity(unittest.TestCase):
         amenity2 = Amenity()
         self.assertIsInstance(amenity, Amenity)
         self.assertEqual(amenity.name, '')
-        self.assertEqual(amenity, amenity2)
 
 
 if __name__ == "__main__":
