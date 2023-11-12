@@ -9,6 +9,9 @@ class TestUser(unittest.TestCase):
     def test_user(self):
         user = User()
         self.assertIsInstance(user, User)
+        self.assertEqual(user.email, '')
+        self.assertEqual(user.password, '')
+        self.assertEqual(user.last_name, '')
 
 
 if __name__ == "__main__":
