@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """class that does unittest"""
 import unittest
-from models.engine.file_storage import FileStorage
+from ..test_engine import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
