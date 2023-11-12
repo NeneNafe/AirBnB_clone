@@ -93,13 +93,13 @@ class HBNBCommand(cmd.Cmd):
             NewList = [str(obj) for key, obj in storage.all().items()]
             print(NewList)
 
-    def precmd(self, line):
-        cmd_args = line.split('.')
-        if len(cmd_args) == 2 and\
-                cmd_args[1].startswith('all(') and cmd_args[1].endswith(')'):
-            classname = cmd_args[0]
-            return f'all {classname}'
-        return line
+    # def precmd(self, line):
+    #     cmd_args = line.split('.')
+    #     if len(cmd_args) == 2 and\
+    #             cmd_args[1].startswith('all(') and cmd_args[1].endswith(')'):
+    #         classname = cmd_args[0]
+    #         return f'all {classname}'
+    #     return line
 
     def do_update(self, line):
         """ Updates an instance based on the class name and id"""
