@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+from models.place import Place
 """class that does unittest"""
 import unittest
-from models.place import Place
 
 
 class TestPlace(unittest.TestCase):

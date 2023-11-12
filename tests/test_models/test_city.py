@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+from models.city import City
 """class that does unittest"""
 import unittest
-from models.city import City
 
 
 class TestCity(unittest.TestCase):

@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+from models.review import Review
 """class that does unittest"""
 import unittest
-from models.review import Review
 
 
 class TestReview(unittest.TestCase):

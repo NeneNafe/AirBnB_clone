@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+from models.state import State
 """class that does unittest"""
 import unittest
-from models.state import State
 
 
 class TestUser(unittest.TestCase):
