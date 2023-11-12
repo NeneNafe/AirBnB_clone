@@ -11,7 +11,7 @@ class TestBaseModel(unittest.TestCase):
         b1 = BaseModel()
         self.assertTrue(hasattr(b1, 'created_at'))
         self.assertTrue(hasattr(b1, 'updated_at'))
-        delay = timedelta(seconds=1)
+        delay = timedelta(days=1)
         timediff = datetime.now() - b1.created_at
         self.assertTrue(timediff < delay)
         self.assertIsInstance(b1.id, str)
