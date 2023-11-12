@@ -54,14 +54,14 @@ class BaseModel:
         created_at
         updated_at
         """
-        # dict = self.__dict__.copy()
-        return {
-            "__class__": self.__class__.__name__,
-            "id": self.id,
-            "created_at": self.created_at.isoformat(),
-            "updated_at": self.updated_at.isoformat(),
-            }
-        # dict['__class__'] = self.__class__.__name__
-        # dict['created_at'] = self.created_at.isoformat()
-        # dict['updated_at'] = self.updated_at.isoformat()
-        # return dict
+        # return {
+        # "__class__": self.__class__.__name__,
+        # "id": self.id,
+        # "created_at": self.created_at.isoformat(),
+        # "updated_at": self.updated_at.isoformat(),
+        # }
+        our_dict = self.__dict__.copy()
+        our_dict["__class__"] = type(self).__name__
+        our_dict["created_at"] = our_dict["created_at"].isoformat()
+        our_dict["updated_at"] = our_dict["updated_at"].isoformat()
+        return our_dict
