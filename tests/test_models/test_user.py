@@ -5,7 +5,7 @@ from models.user import User
 
 
 class TestUser(unittest.TestCase):
-    """This is the test for file_storage"""
+    """This is the test for User"""
     pass
 
 
