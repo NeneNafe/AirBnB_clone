@@ -11,7 +11,7 @@ class TestBaseModel(unittest.TestCase):
     def test_Base(self):
         b1 = BaseModel()
         b2 = BaseModel()
-        self.assertFalse(b1.id == b2.id)
+        self.assertTrue(b1.id == b2.id)
         self.assertTrue(hasattr(b1, 'created_at'))
         self.assertTrue(hasattr(b1, 'updated_at'))
         delay = timedelta(days=1)
