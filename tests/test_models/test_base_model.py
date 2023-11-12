@@ -19,7 +19,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(b1.updated_at, datetime)
         self.assertRegex(
             b1.id,
-            r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+            r'^[0-9a-fA-F]{8}-'
+            r'[0-9a-fA-F]{4}-'
+            r'[0-9a-fA-F]{4}-'
+            r'[0-9a-fA-F]{4}-'
+            r'[0-9a-fA-F]{12}$'
         )
 
 
