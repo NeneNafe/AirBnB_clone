@@ -99,6 +99,10 @@ class HBNBCommand(cmd.Cmd):
                 cmd_args[1].startswith('all(') and cmd_args[1].endswith(')'):
             classname = cmd_args[0]
             return f'all {classname}'
+        if len(cmd_args) == 2 and\
+            cmd_args[1].startswith('show(') and cmd_args[1].endswith(')'):
+            classname = cmd_args[0]
+            return f'show {classname}'
         return line
 
     def do_update(self, line):
