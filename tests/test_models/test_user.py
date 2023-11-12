@@ -1,7 +1,6 @@
-#!/usr/bin/python3
+from models.user import User
 """class that does unittest"""
 import unittest
-from models.user import User
 
 
 class TestUser(unittest.TestCase):
