@@ -9,6 +9,8 @@ class TestCity(unittest.TestCase):
     def test_city(self):
         city = City()
         self.assertIsInstance(city, City)
+        self.assertIsInstance(city.name, str)
+        self.assertIsInstance(city.id, str)
         self.assertEqual(city.name, '')
         self.assertRegex(
             city.id,
