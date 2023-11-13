@@ -118,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
         elif cmd_args[0] not in storage.classes():
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
         elif len(cmd_args) < 2:
             print("** instance id missing **")
         else:
@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             elif len(cmd_args) < 3:
                 print("** attribute name missing **")
             elif len(cmd_args) < 4:
-                print("** value is missing **")
+                print("** value missing **")
             else:
                 val = storage.all()[key]
                 try:
