@@ -1,0 +1,1 @@
+read me file for the web static aspect of my Airbnb clone
